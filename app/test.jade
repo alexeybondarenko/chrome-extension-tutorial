@@ -1,0 +1,18 @@
+extends layouts/default
+
+block content
+  .row.marketing
+    .col-md-12
+      h4 Тест
+      p Этот тест содержит простые вопросы по пройденному материалу. Он поможет усвоить тему.
+      br
+      each test, testIndex in tests
+        .panel.panel-default
+          .panel-heading
+            h5 #{testIndex + 1}. #{test.question}
+          .panel-body
+            each question, questionIndex in test.answers
+              .radio
+                label
+                  input(type="radio", name=testIndex, value=questionIndex)
+                  | #{question}

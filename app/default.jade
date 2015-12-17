@@ -2,7 +2,7 @@ doctype html
 html.no-js
   head
     meta(charset='utf-8')
-    title Chrome Extension Tutorial
+    title My Webapp
     meta(name='description' content='')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='apple-touch-icon' href='apple-touch-icon.png')
@@ -29,11 +29,10 @@ html.no-js
     .container
       .header
         ul.nav.nav-pills.pull-right
-          li: a(href='index.html') Главная
-          li: a(href='tutorial.html') Урок
-          li: a(href='test.html') Тест
+          li.active: a(href='#') Главная
+          li: a(href='quiz.html') Тест
 
-        h3: a.text-muted(href="index.html") Chrome Extension
+        h3.text-muted Chrome Extension
           span.lead &nbsp;Tutorial
 
       block content
@@ -43,7 +42,8 @@ html.no-js
 
     // build:js scripts/vendor.js
     // bower:js
-    script(src='../bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/modernizr/modernizr.js')
+    script(src='/bower_components/jquery/dist/jquery.js')
     // endbower
     // endbuild
 

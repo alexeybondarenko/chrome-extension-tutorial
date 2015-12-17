@@ -5,6 +5,8 @@ import browserSync from 'browser-sync';
 import del from 'del';
 import {stream as wiredep} from 'wiredep';
 
+import {ghPages as gulpGhPages} from 'gulp-gh-pages';
+
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
@@ -110,7 +112,7 @@ gulp.task('serve', ['views','styles', 'fonts'], () => {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/**/*.jade', ['views']);
+  gulp.watch('app/**/*.{jade,md}', ['views']);
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
@@ -143,9 +145,62 @@ gulp.task('serve:test', () => {
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
 
+const tests = [
+  {
+    question: "Что такое расширение для Google Chrome?",
+    answers: [
+      'Это новая версия браузера',
+      'Это небольшое веб-приложение, которое работает в фоновом режиме на веб-странице',
+      'Это новый интернет-вирус'
+    ]
+  },
+  {
+    question: "Какие бывают расширения?",
+    answers: [
+      "Следящие и спящие",
+      "Модифицирующие и самостоятельные приложения",
+      "Добрые и злые"
+    ]
+  },
+  {
+    question: "За что отвечает manifest.json?",
+    answers: [
+      "Он содержит конфигурацию расширения",
+      "Он содержит файл описания проекта",
+      "Он содержит все данные расширения"
+    ]
+  },
+  {
+    question: "Какой блок отвечает за вставку файла CSS-стиле в сайт?",
+    answers: [
+      "browser_action",
+      "content_scripts",
+      "permissions",
+      "manifest_version"
+    ]
+  },
+  {
+    question: "Какие существуют методы распространения расширений?",
+    answers: [
+      "Через магазин расширений",
+      "Через магазин расширений и через сторонние ресурсы"
+    ]
+  },
+  {
+    question: "Какие изменения требуют обновления расширения?",
+    answers: [
+      "Изменения в manifest.json",
+      "Изменение в файлах из поля content_scripts в manifest.json",
+      "В обоих случаях"
+    ]
+  }
+];
+
 gulp.task('views', () => {
   return gulp.src('app/*.jade')
-    .pipe($.jade({pretty: true}))
+    .pipe($.jade({pretty: true, locals: {
+      tests: tests
+    }}))
     .pipe(gulp.dest('.tmp'))
     .pipe(reload({stream: true}));
 });
@@ -172,4 +227,9 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
+});
+
+gulp.task('deploy', ['build'], () => {
+  return gulp.src('dist/**/*')
+    .pipe(ghPages());
 });

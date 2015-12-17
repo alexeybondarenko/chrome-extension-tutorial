@@ -2,15 +2,12 @@ extends layouts/default
 
 block content
   .row.marketing
-    .col-lg-6
-      h4 HTML5 Boilerplate
-      p HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+    .col-md-12
+      include:marked contents/about-extensions.md
 
-      h4 Sass
-      p Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
+      h4: a(href="tutorial.html") Описание урока
+      p В уроке рассказывается о создание расширения для Google Chrome, которое изменяет стиль портала самообучения <a href="http://moodle.kpi.ua">http://moodle.kpi.ua</a>
 
-      h4 Bootstrap
-      p Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.
+      h4 Тесты
+      p Для проверки освоения материала были подготовлены тесты
 
-      h4 Modernizr
-      p Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.
