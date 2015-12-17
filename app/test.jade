@@ -6,13 +6,10 @@ block content
       h4 Тест
       p Этот тест содержит простые вопросы по пройденному материалу. Он поможет усвоить тему.
       br
-      each test, testIndex in tests
-        .panel.panel-default
-          .panel-heading
-            h5 #{testIndex + 1}. #{test.question}
-          .panel-body
-            each question, questionIndex in test.answers
-              .radio
-                label
-                  input(type="radio", name=testIndex, value=questionIndex)
-                  | #{question}
+      .panel.panel-default
+        .panel-body
+          dl#test
+            each test, testIndex in tests
+              dt(data-ans=test.correct, data-point=5)=test.question
+              each question in test.answers
+                dd=question

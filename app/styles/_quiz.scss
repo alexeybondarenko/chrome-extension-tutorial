@@ -1,0 +1,98 @@
+.quiz h3, .quiz-results h3, .quiz-answers h3 {
+  font-size: 18px;
+  font-family: Verdana;
+}
+
+.quiz {
+  color: inherit;
+  ol, ul {
+    margin: 0;
+    padding: 0;
+  }
+  ol {
+    padding-left: 20px;
+    > li {
+      font: bold 14px Arial;
+      margin-top: 20px;
+    }
+  }
+  ul {
+    list-style: none;
+    margin-top: 5px;
+    li {
+      font-size: 12px;
+      font-weight: normal;
+      margin-top: 3px;
+      line-height: 18px\9;
+      &.correct span {
+        font-weight: bold;
+        color: green;
+      }
+    }
+  }
+  input[type=radio] {
+    float: left;
+    margin: 1px 5px 0 0;
+  }
+  .buttons {
+    margin-top: 30px;
+    text-align: center;
+    [type=button] {
+      margin: 0 3px;
+    }
+  }
+}
+
+.quiz-results {
+  .buttons [type=button] {
+    margin: 0 3px;
+  }
+  table {
+    margin-top: 20px;
+    font: normal 12px Arial;
+  }
+}
+
+.quiz-answers table {
+  margin-top: 20px;
+  font: normal 12px Arial;
+}
+
+.quiz-results {
+  td {
+    &.label {
+      font-size: 14px;
+      font-weight: bold;
+      padding-right: 20px;
+      color: #333
+    }
+    &.field {
+      width: 150px;
+    }
+    padding-top: 10px;
+  }
+  tr:first-child td {
+    padding-top: 0;
+  }
+  .buttons {
+    padding-top: 30px;
+  }
+}
+
+.quiz-answers {
+  table {
+    width: 165px;
+    background: #aaa;
+  }
+  td {
+    text-align: center;
+    font-weight: bold;
+    background: #fff;
+  }
+  .correct {
+    color: green;
+  }
+  .wrong {
+    color: #ff0000;
+  }
+}
