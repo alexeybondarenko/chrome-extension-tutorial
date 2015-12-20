@@ -1,1 +1,1 @@
-!function(){document.getElementById("test").quiz({title:"Тест 2",resTitle:"Результати",ansTitle:"Відповіді",type:"letter",percent:!0,points:!0,debug:!1})}();
+!function(){document.getElementById("test").quiz({title:"Тест",resTitle:"Результати",ansTitle:"Відповіді",type:"letter",percent:!0,points:!0,debug:!1})}();
