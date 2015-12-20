@@ -1,6 +1,6 @@
 (function () {
   document.getElementById("test").quiz({
-    title: "Тест 2",	// type: string; default: "Тестування"
+    title: "Тест",	// type: string; default: "Тестування"
     resTitle: "Результати",				// type: string; default: "Результати"
     ansTitle: "Відповіді",				// type: string; default: "Відповіді"
     type: "letter",								// type: string; default: "letter"; Values: letter, numbers
