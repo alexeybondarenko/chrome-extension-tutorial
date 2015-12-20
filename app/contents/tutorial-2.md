@@ -28,4 +28,4 @@
 
 <img alt="Moodle After" src="images/moodle-after.png" width="100%">
 
-[Установка розширення](./ tutorial-3.html)
+[Установка розширення](./tutorial-3.html)
